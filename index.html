@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octavia Octaviano | Author & Theorist</title>
+    
+    <!-- Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <!-- Removed Dancing Script as it's not used in the screenshot's hero text --><style>
+        /* --- CSS RESET & VARIABLES --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #1a1a1a;       /* Near black */
+            --text-muted: #555555;      /* Dark Gray */
+            --text-light: #888888;      /* Light Gray for subtle elements */
+            --accent-line: #e5e5e5;     /* Very subtle border color */
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Source Serif 4', serif;
+            
+            --spacing-section: 8rem;    /* Generous vertical breathing room */
+            --spacing-item: 2rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.8; /* Airy line height for readability */
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        a:hover {
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--text-muted);
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            width: 90%;
+            max-width: 900px; /* Constrained width for reading comfort */
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            padding: var(--spacing-section) 0;
+            border-bottom: 1px solid transparent; /* Placeholder for potential spacing debug */
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 100;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Sticky header on larger screens per request */
+        @media (min-width: 768px) {
+            header {
+                position: sticky;
+                top: 0;
+                padding: 2rem 0;
+                border-bottom: 1px solid var(--accent-line);
+            }
+        }
+
+        .site-title {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--text-main);
+            border: none !important; /* Remove hover border from title */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav li {
+            display: inline-block;
+        }
+
+        nav a {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+        }
+
+        /* --- TAGLINE SECTION --- */
+        #tagline-section {
+            padding: 4rem 0 2rem; /* Adjusted padding */
+            text-align: center;
+        }
+        
+        /* Original site tagline (removed based on screenshot, but keeping styles in case needed) */
+        .original-tagline {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 4rem; /* More space below */
+        }
+
+        /* The sub-line from the old hero, now repurposed as a prominent tagline */
+        .prominent-tagline {
+            font-family: var(--font-body); /* Or heading, depending on desired look */
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            font-style: italic; /* From screenshot */
+            margin-bottom: 4rem; /* Spacing between tagline and hero */
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            text-align: center;
+            padding: 2rem 0 8rem; /* Adjusted top padding to be less */
+        }
+
+        .hero-main {
+            font-size: 3rem; /* Matched screenshot size */
+            line-height: 1.2;
+            margin-bottom: 1.5rem; /* Space below the main line */
+            font-weight: 400; /* Playfair default weight */
+        }
+        
+        .hero-main .ephemeral-style {
+            font-family: var(--font-heading); /* Use Playfair Display */
+            font-weight: 600; /* Bolder for impact, but still elegant */
+            font-style: italic; /* Italic per screenshot */
+            color: var(--text-main); /* Black */
+        }
+
+        /* --- MICRO-THOUGHTS SECTION --- */
+        #micro-thoughts {
+            background-color: #fafafa; /* Extremely subtle contrast for this section */
+        }
+
+        .thoughts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .thoughts-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .thought-card {
+            padding: 1rem;
+            border-left: 1px solid var(--accent-line);
+        }
+
+        .thought-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        /* --- ESSAYS SECTION --- */
+        .essay-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+        
+        @media (min-width: 768px) {
+            .essay-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .essay-category {
+            margin-bottom: 2rem;
+        }
+
+        .category-title {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--accent-line);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .essay-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .essay-item h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+        }
+
+        .essay-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* --- BOOKS SECTION --- */
+        .books-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .books-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        .book-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .book-cover-placeholder {
+            width: 100%;
+            max-width: 200px; /* Constrain width on larger screens */
+            aspect-ratio: 2 / 3;
+            background-color: #f7f7f7;
+            border: 1px solid #eeeeee;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .book-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-layout {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .profile-circle {
+            width: 200px;
+            height: 200px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .bio-text {
+            flex: 1;
+        }
+
+        .bio-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .signature {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            border-top: 1px solid var(--accent-line);
+            margin-top: 4rem;
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 768px) {
+            h2 { font-size: 2rem; }
+            .hero-main { font-size: 2.5rem; /* Slightly smaller for mobile */ }
+            .tagline-text { font-size: 1.2rem; } /* Original tagline */
+            .prominent-tagline { font-size: 1.1rem; } /* Sub-line, now a prominent tagline */
+            nav ul { gap: 1.2rem; }
+            section { padding: 4rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER --><header>
+        <div class="container">
+            <a href="#" class="site-title">Octavia Octaviano</a>
+            <nav>
+                <ul>
+                    <li><a href="#micro-thoughts">Micro-Thoughts</a></li>
+                    <li><a href="#essays">Essays</a></li>
+                    <li><a href="#books">Books</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- TAGLINE SECTION --><section id="tagline-section">
+        <div class="container">
+            <!-- The three-line tagline is now hidden to match the screenshot --><!-- <div class="original-tagline">
+                The mind of a theorist,<br>
+                the heart of a mystic,<br>
+                the language of a storyteller.
+            </div> --><!-- This is the 'sub-line' from the previous hero, now acting as the main tagline --><p class="prominent-tagline">The quiet observer of a loud world.</p>
+        </div>
+    </section>
+
+    <!-- HERO SECTION --><section id="hero">
+        <div class="container">
+            <h1 class="hero-main">Capturing the <span class="ephemeral-style">ephemeral</span> in ink.</h1>
+            <!-- The sub-line is moved to the tagline section --></div>
+    </section>
+
+    <!-- MICRO-THOUGHTS SECTION --><section id="micro-thoughts">
+        <div class="container">
+            <h2>Micro-Thoughts</h2>
+            <div class="thoughts-grid">
+                <!-- Item 1 --><div class="thought-card">
+                    <p class="thought-text">"Some days, the loudest truth is the one you decide not to say. Silence has a texture that words can rarely mimic."</p>
+                </div>
+                <!-- Item 2 --><div class="thought-card">
+                    <p class="thought-text">"We underestimate how much of our life is edited in hindsight. We are unreliable narrators of our own joy."</p>
+                </div>
+                <!-- Item 3 --><div class="thought-card">
+                    <p class="thought-text">"Every belief is a story we got too comfortable repeating. Question the script before you memorize the lines."</p>
+                </div>
+                <!-- Item 4 --><div class="thought-card">
+                    <p class="thought-text">"Nostalgia is just grief wearing a better outfit. It asks us to return to a home that no longer has a door."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESSAYS SECTION --><section id="essays">
+        <div class="container">
+            <h2>Essays</h2>
+            <p class="section-desc">Long-form reflections on culture, consciousness, and the quiet machinery of everyday life.</p>
+            
+            <div class="essay-grid">
+                <!-- Column 1 --><div class="col">
+                    <div class="essay-category">
+                        <div class="category-title">Social Theory</div>
+                        <div class="essay-item">
+                            <h4>The Architecture of Belonging</h4>
+                            <p class="essay-desc">Why our modern search for community often leads to deeper isolation.</p>
+                        </div>
+                        <div class="essay-item">
+                            <h4>Digital Ghosts</h4>
+                            <p class="essay-desc">Navigating the ethics of memory in an age that never forgets.</p>
+                        </div>
+                    </div>
+
+                    <div class="essay-category">
+                        <div class="category-title">Mysticism & Meaning</div>
+                        <div class="essay-item">
+                            <h4>The Secular Sacred</h4>
+                            <p class="essay-desc">Finding awe in a world stripped of its myths.</p>
+                        </div>
+                    </div>
+
+                    <div class="essay-category">
+                        <div class="category-title">Culture & Media</div>
+                        <div class="essay-item">
+                            <h4>Silence as Rebellion</h4>
+                            <p class="essay-desc">Refusing the economy of attention in a hyper-visible era.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2 --><div class="col">
+                    <div class="essay-category">
+                        <div class="category-title">Parenting & Childhood</div>
+                        <div class="essay-item">
+                            <h4>Inheriting the Wind</h4>
+                            <p class="essay-desc">Breaking generational cycles without breaking the bond.</p>
+                        </div>
+                        <div class="essay-item">
+                            <h4>Small Philosophers</h4>
+                            <p class="essay-desc">What the raw emotional intelligence of a toddler teaches us about honesty.</p>
+                        </div>
+                    </div>
+
+                    <div class="essay-category">
+                        <div class="category-title">Memory & Time</div>
+                        <div class="essay-item">
+                            <h4>The Long Sunday</h4>
+                            <p class="essay-desc">How our perception of time shifts when we stop measuring productivity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKS SECTION --><section id="books">
+        <div class="container">
+            <h2>Books</h2>
+            <p class="section-desc">Projects in progress and works making their way into the world.</p>
+
+            <div class="books-grid">
+                <!-- Book 1 --><div class="book-card">
+                    <div class="book-cover-placeholder">Cover Art</div>
+                    <h3 class="book-title">The Theory of Quiet</h3>
+                    <p class="book-desc">A philosophical exploration of silence in the 21st century, weaving together memoir and cultural critique.</p>
+                </div>
+
+                <!-- Book 2 --><div class="book-card">
+                    <div class="book-cover-placeholder">Cover Art</div>
+                    <h3 class="book-title">Letters to a Future Self</h3>
+                    <p class="book-desc">A collection of essays on the fluidity of identity and the art of becoming.</p>
+                </div>
+
+                <!-- Book 3 --><div class="book-card">
+                    <div class="book-cover-placeholder">Cover Art</div>
+                    <h3 class="book-title">Drafts of the Soul</h3>
+                    <p class="book-desc">Short fiction exploring the mystical undercurrents of suburban life. (Coming 2025)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION --><section id="about">
+        <div class="container">
+            <h2>About</h2>
+            <div class="about-layout">
+                <div class="profile-circle" title="Portrait Placeholder"></div>
+                
+                <div class="bio-text">
+                    <p>Octavia Octaviano is a writer and cultural theorist based in the Pacific Northwest. Her work exists at the intersection of social commentary and personal mysticism, exploring how the large structures of society imprint themselves on the quiet moments of our daily lives.</p>
+                    
+                    <p>With a background in continental philosophy and a practice rooted in contemplative traditions, Octavia seeks to dismantle the noise of the modern era to find the signal underneath. She writes extensively on conscious parenting, the ethics of memory, and the lost art of solitude.</p>
+                    
+                    <p>When she isn't writing, she is usually observing the rain, reading three books simultaneously, or negotiating with her kids on various things.</p>
+
+                    <div class="signature">Octavia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER --><footer>
+        <div class="container">
+            <div class="footer-text">&copy; 2025 Octavia Octaviano</div>
+            <div class="footer-text">The quiet observer of a loud world.</div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
